@@ -12,7 +12,7 @@ class Debt extends Model
         'supplier_id',
         'amount',
         'due_date',
-        'status'
+        'status',
     ];
     public function supplier(){
         return $this->belongsTo(Supplier::class);

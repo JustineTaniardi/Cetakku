@@ -3,8 +3,30 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class AuthController extends Controller
 {
-    //ini adadkahskda sldkhklds
+    public function login(Request $request){
+        $credentials = $request->validate([
+            'email' => 'required|email',
+            'password' => 'required',
+        ]);
+
+        if(Auth::attempt($credentials)){
+            $request->session()->regenerate();
+
+            return $this->redirectByRole();
+        }
+    }
+
+    public function redirectByRole(){
+        $role = Auth::user()->role->name;
+
+        return match ($role){
+            'admin' => redirect('admin'),
+            'kasir' => redirect('kasir'),
+            'pekerja' => redirect('pekerja'),
+        };
+    }
 }

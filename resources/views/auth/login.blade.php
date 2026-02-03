@@ -7,7 +7,7 @@
     <title>CetakKu</title>
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
-<body class="bg-cover bg-center min-h-screen"
+<body class="bg-contain bg-center h-screen overflow-hidden"
     style="background-image: url('{{ asset('images/login_bg.jpg') }}'); 
             background-size: cover; background-position: center; background-attachment: fixed;">
     
@@ -27,7 +27,6 @@
                 </p>
             </div>
         </div>
-
         <!-- Right Section - Login Form (Layer 2) -->
         <div class="w-full lg:w-5/10 flex items-center justify-center md:p-8 lg:p-12 lg:mr-0">
             <div class="w-full max-w-sm md:max-w-md lg:max-w-2xl bg-white rounded-xl md:rounded-1xl px-12 md:px-12 py-20 md:py-16 lg:py-60 lg:px-20 shadow-xl relative">
@@ -58,10 +57,7 @@
                         <div class="relative">
                             <input type="password" id="passwordInput" placeholder="Masukkan kata sandi" 
                                 class="w-full px-3 md:px-4 py-2 md:py-3 text-sm border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-600 focus:border-transparent outline-none transition pr-10">
-                            <button type="button" onclick="togglePassword()" class="absolute right-3 top-2.5 md:top-3.5 text-gray-400 hover:text-gray-600 transition">
-                                <svg id="eyeIcon" class="w-4 h-4 md:w-5 md:h-5" fill="currentColor" viewBox="0 0 24 24">
-                                    <path d="M12 4.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5zM12 17c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5zm0-8c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/>
-                                </svg>
+                            <button type="button"  class="absolute right-3 top-2.5 md:top-3.5 text-gray-400 hover:text-gray-600 transition">
                             </button>
                         </div>
                     </div>
@@ -74,20 +70,5 @@
             </div>
         </div>
     </div>
-
-    <script>
-        function togglePassword() {
-            const passwordInput = document.getElementById('passwordInput');
-            const eyeIcon = document.getElementById('eyeIcon');
-            
-            if (passwordInput.type === 'password') {
-                passwordInput.type = 'text';
-                eyeIcon.innerHTML = '<path d="M12 4.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5zM12 17c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5zm0-8c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/><path d="M12 14c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2z"/>';
-            } else {
-                passwordInput.type = 'password';
-                eyeIcon.innerHTML = '<path d="M12 4.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5zM12 17c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5zm0-8c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/>';
-            }
-        }
-    </script>
 </body>
 </html>

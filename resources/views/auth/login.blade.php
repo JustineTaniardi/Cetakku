@@ -16,7 +16,7 @@
         <div class="hidden lg:flex lg:w-6/10 relative">
             
             <!-- Title -->
-            <div class="absolute bottom-8 md:bottom-16 left-8 md:left-18 max-w-3xl md:max-w-4xl shadow-2xl">
+            <div class="absolute bottom-8 md:bottom-16 left-8 md:left-18 max-w-3xl md:max-w-4xl">
                 <h1 class="font-inter text-white text-3xl md:text-6xl lg:text-7xl font-bold leading-tight mb-6 md:mb-6">
                     Kerja Rapi, Kinerja Efisien,<br>
                     Maksimalkan Hasil.

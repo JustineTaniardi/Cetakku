@@ -8,7 +8,7 @@
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
 <body class="bg-cover bg-center min-h-screen"
-    style="background-image: url('{{ asset('build/assets/img/login_bg.jpg') }}'); 
+    style="background-image: url('{{ asset('images/login_bg.jpg') }}'); 
             background-size: cover; background-position: center; background-attachment: fixed;">
     
     <div class="min-h-screen flex flex-col lg:flex-row">
@@ -65,30 +65,10 @@
                             </button>
                         </div>
                     </div>
-
-                    <!-- Remember Me & Forgot Password -->
-                    <div class="flex flex-col md:flex-row items-start md:items-center justify-between gap-2 md:gap-0">
-                        <label class="flex items-center gap-2">
-                            <input type="checkbox" class="w-4 h-4 rounded border-gray-300 text-purple-600 focus:ring-purple-500">
-                            <span class="text-xs md:text-sm text-gray-600">Ingat akun saya</span>
-                        </label>
-                        <a href="#" class="text-xs md:text-sm text-purple-600 hover:text-purple-700 font-medium">Lupa kata sandi?</a>
-                    </div>
-
                     <!-- Login Button -->
                     <button type="submit" class="w-full bg-purple-900 hover:bg-purple-800 text-white font-semibold py-2 md:py-3 text-sm md:text-base rounded-lg transition duration-200">
                         Masuk
                     </button>
-
-                    <!-- Divider -->
-                    <div class="relative">
-                        <div class="absolute inset-0 flex items-center">
-                            <div class="w-full border-t border-gray-300"></div>
-                        </div>
-                        <div class="relative flex justify-center text-xs md:text-sm">
-                            <span class="px-2 bg-white text-gray-500">atau lanjutkan dengan</span>
-                        </div>
-                    </div>
                 </form>
             </div>
         </div>

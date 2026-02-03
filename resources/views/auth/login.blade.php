@@ -33,12 +33,12 @@
             <div class="w-full max-w-sm md:max-w-md lg:max-w-2xl bg-white rounded-xl md:rounded-1xl px-12 md:px-12 py-20 md:py-16 lg:py-60 lg:px-20 shadow-xl relative">
             <!-- Kembali Button -->
             <div class="absolute top-12 right-5 md:top-8 md:right-8 lg:top-18 lg:right-18">
-                <button class="text-gray-700 hover:text-gray-900 font-medium text-xs md:text-sm flex items-center gap-1">
+                <a href="/" class="text-gray-700 hover:text-gray-900 font-medium text-xs md:text-sm flex items-center gap-1">
                 Kembali
                 <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
                 </svg>
-                </button>
+                </a>
             </div>
 
                 <h2 class="text-3xl md:text-4xl lg:text-6xl font-bold text-gray-900 mb-2">Masukkan Akun.</h2>

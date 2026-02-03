@@ -9,14 +9,13 @@
 </head>
 <body class="bg-contain bg-center h-screen overflow-hidden"
     style="background-image: url('{{ asset('images/login_bg.jpg') }}'); 
-            background-size: cover; background-position: center; background-attachment: fixed;">
-    
-    <div class="min-h-screen flex flex-col lg:flex-row">
+            background-size: cover; background-position: center;">
+    <div class="h-screen flex flex-col lg:flex-row">
         <!-- Left Section - Background Image (Layer 1) -->
-        <div class="hidden lg:flex lg:w-6/10 relative">
+        <div class="hidden lg:flex lg:w-3/5 relative">
             
             <!-- Title -->
-            <div class="absolute bottom-8 md:bottom-16 left-8 md:left-18 max-w-3xl md:max-w-4xl">
+            <div class="absolute bottom-8 md:bottom-16 left-8 md:left-16 max-w-3xl md:max-w-4xl">
                 <h1 class="font-inter text-white text-3xl md:text-6xl lg:text-7xl font-bold leading-tight mb-6 md:mb-6">
                     Kerja Rapi, Kinerja Efisien,<br>
                     Maksimalkan Hasil.
@@ -28,10 +27,10 @@
             </div>
         </div>
         <!-- Right Section - Login Form (Layer 2) -->
-        <div class="w-full lg:w-5/10 flex items-center justify-center md:p-8 lg:p-12 lg:mr-0">
-            <div class="w-full max-w-sm md:max-w-md lg:max-w-2xl bg-white rounded-xl md:rounded-1xl px-12 md:px-12 py-20 md:py-16 lg:py-60 lg:px-20 shadow-xl relative">
+        <div class="w-full lg:w-1/2 flex items-center justify-center md:p-8 lg:p-12 lg:mr-0">
+            <div class="w-full max-w-sm md:max-w-md lg:max-w-2xl bg-white rounded-xl md:rounded-1xl px-12 md:px-12 py-12 md:py-16 lg:py-20 lg:px-20 shadow-xl relative">
             <!-- Kembali Button -->
-            <div class="absolute top-12 right-5 md:top-8 md:right-8 lg:top-18 lg:right-18">
+            <div class="absolute top-12 right-5 md:top-18 md:right-8 lg:top-18 lg:right-18">
                 <a href="/" class="text-gray-700 hover:text-gray-900 font-medium text-xs md:text-sm flex items-center gap-1">
                 Kembali
                 <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -63,7 +62,7 @@
                     </div>
                     <br>
                     <!-- Login Button -->
-                    <button type="submit" class="w-full bg-purple-900 hover:bg-purple-800 text-white font-semibold md:py-3.5 text-sm md:text-base rounded-lg transition duration-200">
+                    <button type="submit" class="w-full bg-purple-900 hover:bg-purple-800 text-white font-semibold md:py-3.5 py-3 text-sm md:text-base rounded-lg transition duration-200">
                         Masuk
                     </button>
                 </form>

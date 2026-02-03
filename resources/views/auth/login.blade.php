@@ -29,8 +29,8 @@
         </div>
 
         <!-- Right Section - Login Form (Layer 2) -->
-        <div class="w-full lg:w-5/10 flex items-center justify-center p-4 md:p-8 lg:p-12 mr-3 lg:mr-0">
-            <div class="w-full max-w-sm md:max-w-md lg:max-w-2xl bg-white rounded-xl md:rounded-1xl px-12 md:px-12 py-20 md:py-16 lg:py-54 lg:px-20 shadow-xl relative">
+        <div class="w-full lg:w-5/10 flex items-center justify-center md:p-8 lg:p-12 lg:mr-0">
+            <div class="w-full max-w-sm md:max-w-md lg:max-w-2xl bg-white rounded-xl md:rounded-1xl px-12 md:px-12 py-20 md:py-16 lg:py-60 lg:px-20 shadow-xl relative">
             <!-- Kembali Button -->
             <div class="absolute top-12 right-5 md:top-8 md:right-8 lg:top-18 lg:right-18">
                 <button class="text-gray-700 hover:text-gray-900 font-medium text-xs md:text-sm flex items-center gap-1">
@@ -41,10 +41,10 @@
                 </button>
             </div>
 
-                <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-2">Masukkan Akun.</h2>
+                <h2 class="text-3xl md:text-4xl lg:text-6xl font-bold text-gray-900 mb-2">Masukkan Akun.</h2>
                 <p class="text-gray-600 text-sm md:text-base mb-6 md:mb-8">Akses cepat ke sistem digital printing perusahaan.</p>
                 
-                <form class="space-y-4 md:space-y-5">
+                <form class="space-y-4 md:space-y-5 py-12">
                     <!-- Username -->
                     <div>
                         <label class="block text-xs md:text-sm font-medium text-gray-700 mb-2">Username</label>
@@ -65,8 +65,9 @@
                             </button>
                         </div>
                     </div>
+                    <br>
                     <!-- Login Button -->
-                    <button type="submit" class="w-full bg-purple-900 hover:bg-purple-800 text-white font-semibold py-2 md:py-3 text-sm md:text-base rounded-lg transition duration-200">
+                    <button type="submit" class="w-full bg-purple-900 hover:bg-purple-800 text-white font-semibold md:py-3.5 text-sm md:text-base rounded-lg transition duration-200">
                         Masuk
                     </button>
                 </form>

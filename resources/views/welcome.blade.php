@@ -243,7 +243,19 @@
     <!-- Card -->
     <div class="relative bg-primary rounded-xl border border-tertiary-3 p-6 pt-12 lg:pt-22 text-center">
       <div class="absolute bg-primary w-45 h-30 lg:w-55 lg:h-40 -top-20 left-1/2 -translate-x-1/2">
-        <img src="{{ asset('images/cp2 girl.jpg') }}" alt="Ani Suriani" class="w-30 h-30 lg:w-38 lg:h-38 rounded-full object-cover absolute items-center justify-center top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2" />
+        <img src="{{ asset('images/person1.png') }}" alt="Budi Santoso" class="w-30 h-30 lg:w-38 lg:h-38 rounded-full object-cover absolute items-center justify-center top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2" />
+      </div>
+      <h3 class="text-lg lg:text-xl font-bold">Budi Santoso</h3>
+      <p class="text-tertiary-1 font-medium text-md">Admin percetakan A</p>
+      <p class="text-tertiary-2 mt-1 text-sm leading-relaxed">
+        Semua data order dan laporan tersimpan rapi. Pengelolaan usaha jadi lebih mudah dan terkontrol.
+      </p>
+    </div>
+
+     <!-- Card -->
+    <div class="relative bg-primary rounded-xl border border-tertiary-3 p-6 pt-12 lg:pt-22 text-center">
+      <div class="absolute bg-primary w-45 h-30 lg:w-55 lg:h-40 -top-20 left-1/2 -translate-x-1/2">
+        <img src="{{ asset('images/person3.png') }}" alt="Ani Suriani" class="w-30 h-30 lg:w-38 lg:h-38 rounded-full object-cover absolute items-center justify-center top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 object-top" />
       </div>
       <h3 class="text-lg lg:text-xl font-bold">Ani Suriani</h3>
       <p class="text-tertiary-1 font-medium text-md">Admin percetakan E</p>
@@ -255,19 +267,7 @@
     <!-- Card -->
     <div class="relative bg-primary rounded-xl border border-tertiary-3 p-6 pt-12 lg:pt-22 text-center">
       <div class="absolute bg-primary w-45 h-30 lg:w-55 lg:h-40 -top-20 left-1/2 -translate-x-1/2">
-        <img src="{{ asset('images/cp2 boy.jpg') }}" alt="Budi Santoso" class="w-30 h-30 lg:w-38 lg:h-38 rounded-full object-cover absolute items-center justify-center top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2" />
-      </div>
-      <h3 class="text-lg lg:text-xl font-bold">Budi Santoso</h3>
-      <p class="text-tertiary-1 font-medium text-md">Admin percetakan A</p>
-      <p class="text-tertiary-2 mt-1 text-sm leading-relaxed">
-        Semua data order dan laporan tersimpan rapi. Pengelolaan usaha jadi lebih mudah dan terkontrol.
-      </p>
-    </div>
-
-    <!-- Card -->
-    <div class="relative bg-primary rounded-xl border border-tertiary-3 p-6 pt-12 lg:pt-22 text-center">
-      <div class="absolute bg-primary w-45 h-30 lg:w-55 lg:h-40 -top-20 left-1/2 -translate-x-1/2">
-        <img src="{{ asset('images/girl.jpg') }}" alt="Siti Aisyah" class="w-30 h-30 lg:w-38 lg:h-38 rounded-full object-cover absolute items-center justify-center top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2" />
+        <img src="{{ asset('images/person2.png') }}" alt="Siti Aisyah" class="w-30 h-30 lg:w-38 lg:h-38 rounded-full object-cover absolute items-center justify-center top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 object-top" />
       </div>
       <h3 class="text-lg lg:text-xl font-bold">Siti Aisyah</h3>
       <p class="text-tertiary-1 font-medium text-md">Admin percetakan F</p>
@@ -275,6 +275,7 @@
         Detail order mudah dilihat. Pekerjaan jadi lebih terarah dan efisien.
       </p>
     </div>
+
       </div>
     </div>
   </section>

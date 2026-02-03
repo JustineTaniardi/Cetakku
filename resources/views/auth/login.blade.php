@@ -7,33 +7,39 @@
     <title>CetakKu</title>
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
-<body class="bg-contain bg-center h-screen overflow-hidden"
+<body class="bg-center h-screen overflow-hidden"
     style="background-image: url('{{ asset('images/login_bg.jpg') }}'); 
             background-size: cover; background-position: center;">
-    <div class="h-screen flex flex-col lg:flex-row">
+    <div class="min-h-screen flex flex-col lg:flex-row">
         <!-- Left Section - Background Image (Layer 1) -->
         <div class="hidden lg:flex lg:w-3/5 relative">
             
             <!-- Title -->
-            <div class="absolute bottom-8 md:bottom-16 left-8 md:left-16 max-w-3xl md:max-w-4xl">
-                <h1 class="font-inter text-white text-3xl md:text-6xl lg:text-7xl font-bold leading-tight mb-6 md:mb-6">
+            <div class="absolute bottom-8 md:bottom-16 left-8 md:left-16 md:max-w-3xl">
+                <h1 class="font-inter text-white text-2xl lg:text-5xl font-bold leading-tight mb-6 md:mb-6">
                     Kerja Rapi, Kinerja Efisien,<br>
                     Maksimalkan Hasil.
                 </h1>
-                <p class="text-white text-sm md:text-lg lg:text-xl leading-relaxed">
+                <p class="text-white text-sm md:text-lg lg:text-lg leading-relaxed">
                     Masuk untuk mengelola pekerjaan. Akses cepat ke<br>
                     sistem manajemen digital printing perusahaan.
                 </p>
             </div>
         </div>
         <!-- Right Section - Login Form (Layer 2) -->
-        <div class="w-full lg:w-1/2 flex items-center justify-center md:p-8 lg:p-12 lg:mr-0">
-            <div class="w-full max-w-sm md:max-w-md lg:max-w-2xl bg-white rounded-xl md:rounded-1xl px-12 md:px-12 py-12 md:py-16 lg:py-20 lg:px-20 shadow-xl relative">
+    <div class="w-full lg:w-[45%] flex items-center justify-center p-6 md:p-10 lg:p-12">
+        <div class="w-full
+                max-w-sm md:max-w-md lg:max-w-3xl
+                min-h-105 md:min-h-120 lg:min-h-150
+                bg-white rounded-xl
+                px-6 md:px-10 lg:px-16
+                py-10 md:py-12
+                shadow-xl relative">
             <!-- Kembali Button -->
-            <div class="absolute top-6 right-5 md:top-8 md:right-8 lg:top-10 lg:right-16">
+            <div class="absolute right-5 md:top-8 md:right-8 lg:top-8 lg:right-14">
                     <a href="/"
                         class="inline-flex items-center gap-2
-                                bg-purple-900 hover:bg-purple-800
+                                bg-purple-950 hover:bg-purple-800
                                 text-white font-medium
                                 text-xs md:text-sm
                                 px-4 py-2
@@ -46,10 +52,9 @@
                 </a>
             </div>
 
-                <h2 class="text-3xl md:text-4xl lg:text-6xl font-bold text-gray-900 mb-2 mt-12">Masukkan Akun.</h2>
-                <p class="text-gray-600 text-sm md:text-base mb-6 md:mb-8">Akses cepat ke sistem digital printing perusahaan.</p>
-                
-                <form class="space-y-4 md:space-y-5 py-12">
+                <h2 class="text-2xl md:text-3xl font-bold mt-10 mb-2">Masukkan Akun.</h2>
+                <p class="text-sm md:text-base text-gray-600 mb-6">Akses cepat ke sistem digital printing perusahaan.</p>
+                <form class="space-y-2 md:space-y-2 py-12">
                     <!-- Username -->
                     <div>
                         <label class="block text-xs md:text-sm font-medium text-gray-700 mb-2">Username</label>
@@ -67,9 +72,8 @@
                             </button>
                         </div>
                     </div>
-                    <br>
                     <!-- Login Button -->
-                    <button type="submit" class="w-full bg-purple-900 hover:bg-purple-800 text-white font-semibold md:py-3.5 py-3 text-sm md:text-base rounded-lg transition duration-200">
+                    <button type="submit" class="w-full bg-purple-950 hover:bg-purple-800 text-white font-semibold md:py-3.5 py-3 text-sm md:text-base rounded-lg transition duration-200 mt-4">
                         Masuk
                     </button>
                 </form>

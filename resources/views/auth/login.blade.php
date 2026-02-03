@@ -30,8 +30,15 @@
         <div class="w-full lg:w-1/2 flex items-center justify-center md:p-8 lg:p-12 lg:mr-0">
             <div class="w-full max-w-sm md:max-w-md lg:max-w-2xl bg-white rounded-xl md:rounded-1xl px-12 md:px-12 py-12 md:py-16 lg:py-20 lg:px-20 shadow-xl relative">
             <!-- Kembali Button -->
-            <div class="absolute top-12 right-5 md:top-18 md:right-8 lg:top-18 lg:right-18">
-                <a href="/" class="text-gray-700 hover:text-gray-900 font-medium text-xs md:text-sm flex items-center gap-1">
+            <div class="absolute top-6 right-5 md:top-8 md:right-8 lg:top-10 lg:right-16">
+                    <a href="/"
+                        class="inline-flex items-center gap-2
+                                bg-purple-900 hover:bg-purple-800
+                                text-white font-medium
+                                text-xs md:text-sm
+                                px-4 py-2
+                                rounded-lg
+                                transition">
                 Kembali
                 <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
@@ -39,7 +46,7 @@
                 </a>
             </div>
 
-                <h2 class="text-3xl md:text-4xl lg:text-6xl font-bold text-gray-900 mb-2">Masukkan Akun.</h2>
+                <h2 class="text-3xl md:text-4xl lg:text-6xl font-bold text-gray-900 mb-2 mt-12">Masukkan Akun.</h2>
                 <p class="text-gray-600 text-sm md:text-base mb-6 md:mb-8">Akses cepat ke sistem digital printing perusahaan.</p>
                 
                 <form class="space-y-4 md:space-y-5 py-12">

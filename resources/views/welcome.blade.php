@@ -110,7 +110,7 @@
         {{-- BIG CIRCLE IMAGE --}}
         <div class="relative hidden lg:block">
           <div class="w-200 h-200 rounded-full overflow-hidden absolute -right-80 -bottom-65 translate-x-32 translate-y-32">
-            <img src="{{ asset('images/Rai.png') }}" class="w-full h-full object-cover" alt="Hero Image">
+            <img src="{{ asset('images/landing-page-photo.png') }}" class="w-full h-full object-cover opacity-70" alt="Hero Image">
           </div>
         </div>
       </div>

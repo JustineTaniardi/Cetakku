@@ -36,7 +36,7 @@
                 py-10 md:py-12
                 shadow-xl relative">
             <!-- Kembali Button -->
-            <div class="absolute right-5 md:top-8 md:right-8 lg:top-8 lg:right-14">
+            <div class="absolute top-8 md:top-8 lg:top-12 right-5 md:right-10 lg:right-14">
                     <a href="/"
                         class="inline-flex items-center gap-2
                                 bg-purple-950 hover:bg-purple-800
@@ -51,9 +51,8 @@
                 </svg>
                 </a>
             </div>
-
-                <h2 class="text-2xl md:text-3xl font-bold mt-10 mb-2">Masukkan Akun.</h2>
-                <p class="text-sm md:text-base text-gray-600 mb-6">Akses cepat ke sistem digital printing perusahaan.</p>
+                <h2 class="text-2xl md:text-3xl font-bold mt-24 mb-2">Masukkan Akun.</h2>
+                <p class="text-sm md:text-base text-gray-600">Akses cepat ke sistem digital printing perusahaan.</p>
                 <form class="space-y-2 md:space-y-2 py-12">
                     <!-- Username -->
                     <div>
@@ -61,7 +60,6 @@
                         <input type="text" placeholder="Masukkan nama pengguna" 
                             class="w-full px-3 md:px-4 py-2 md:py-3 text-sm border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-600 focus:border-transparent outline-none transition">
                     </div>
-
                     <!-- Password -->
                     <div>
                         <label class="block text-xs md:text-sm font-medium text-gray-700 mb-2">Password</label>

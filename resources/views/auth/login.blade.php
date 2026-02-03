@@ -53,21 +53,21 @@
             </div>
                 <h2 class="text-2xl md:text-3xl font-bold mt-24 mb-2">Masukkan Akun.</h2>
                 <p class="text-sm md:text-base text-gray-600">Akses cepat ke sistem digital printing perusahaan.</p>
-                <form class="space-y-2 md:space-y-2 py-12">
+                <form class="space-y-2 md:space-y-2 py-12" method="POST" action="/login">
+                    @csrf
                     <!-- Username -->
                     <div>
-                        <label class="block text-xs md:text-sm font-medium text-gray-700 mb-2">Username</label>
-                        <input type="text" placeholder="Masukkan nama pengguna" 
+                        <label class="block text-xs md:text-sm font-medium text-gray-700 mb-2" for="email">Email</label>
+                        <input type="text" placeholder="Masukkan nama pengguna" name="email" id="email"
                             class="w-full px-3 md:px-4 py-2 md:py-3 text-sm border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-600 focus:border-transparent outline-none transition">
                     </div>
                     <!-- Password -->
                     <div>
-                        <label class="block text-xs md:text-sm font-medium text-gray-700 mb-2">Password</label>
+                        <label class="block text-xs md:text-sm font-medium text-gray-700 mb-2" for="password">Password</label>
                         <div class="relative">
-                            <input type="password" id="passwordInput" placeholder="Masukkan kata sandi" 
+                            <input type="password" id="password" name="password" placeholder="Masukkan kata sandi" 
                                 class="w-full px-3 md:px-4 py-2 md:py-3 text-sm border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-600 focus:border-transparent outline-none transition pr-10">
-                            <button type="button"  class="absolute right-3 top-2.5 md:top-3.5 text-gray-400 hover:text-gray-600 transition">
-                            </button>
+                            
                         </div>
                     </div>
                     <!-- Login Button -->

@@ -16,12 +16,12 @@ class RoleMiddleware
      */
     public function handle(Request $request, Closure $next, ...$roles): Response
     {
-        if(!Auth::check()){
+        if(! Auth::check()){
             abort(403);
         }
 
-        if(!in_array(Auth::user()->role->name, $roles)){
-            abort(403, 'anda tidak memiliki akses untuk halaman ini');
+        if(! in_array(Auth::user()->role->name, $roles)){
+            abort(403, 'anda tidak bisa mengakses halaman ini!');
         }
 
         return $next($request);

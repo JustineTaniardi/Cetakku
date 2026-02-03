@@ -22,6 +22,7 @@ class AuthController extends Controller
 
             return $this->redirectByRole();
         }
+        return back()->withInput()->with('error', 'Email atau password salah');
     }
 
     public function redirectByRole(){

@@ -1,12 +1,23 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="id">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>CetakKu</title>
+    @vite('resources/css/app.css')
 </head>
-<body>
-    
+<body class="bg-gray-50">
+
+<div class="flex min-h-screen">
+
+    {{-- SIDEBAR --}}
+    @include(auth()->user()->role->name . '.sidebar')
+
+    {{-- KONTEN UTAMA --}}
+    <main class="flex-1 p-6">
+        @yield('content')
+    </main>
+
+</div>
+
 </body>
 </html>

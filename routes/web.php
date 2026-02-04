@@ -3,6 +3,7 @@
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\AuthController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Kasir\DashboardController as KasirDashboard;
 
 Route::get('/', function () {
     return view('welcome');
@@ -14,9 +15,7 @@ Route::middleware(['auth', 'role:admin'])->group(function (){
 });
 
 Route::middleware(['auth', 'role:kasir'])->group(function (){
-    Route::get('/kasir', function (){
-        return 'kasir page';
-    })->name('kasir');
+    Route::get('/kasir', [KasirDashboard::class, 'index'] )->name('kasir');
 });
 
 Route::middleware(['auth', 'role:pekerja'])->group(function (){

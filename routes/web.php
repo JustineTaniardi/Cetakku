@@ -15,7 +15,7 @@ Route::middleware(['auth', 'role:admin'])->group(function (){
 });
 
 Route::middleware(['auth', 'role:kasir'])->group(function (){
-    Route::get('/kasir', [KasirDashboard::class, 'index'] )->name('kasir');
+    Route::get('/kasir', [KasirDashboard::class, 'index'] )->name('kasir.dashboard');
 });
 
 Route::middleware(['auth', 'role:pekerja'])->group(function (){

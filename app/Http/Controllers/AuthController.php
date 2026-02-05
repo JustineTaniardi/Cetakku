@@ -30,7 +30,7 @@ class AuthController extends Controller
 
         return match ($role){
             'admin' => redirect('admin'),
-            'kasir' => redirect('kasir'),
+            'kasir' => redirect()->route('kasir.dashboard'),
             'pekerja' => redirect('pekerja'),
         };
     }

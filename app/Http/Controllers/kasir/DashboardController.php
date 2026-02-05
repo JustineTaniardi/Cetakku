@@ -14,6 +14,7 @@ class DashboardController extends Controller
 {
 <<<<<<< Updated upstream
     public function index(){
+<<<<<<< HEAD
         return view('kasir.dashboard');
 =======
     public function index()
@@ -97,5 +98,8 @@ class DashboardController extends Controller
             'recentTransactions'
         ));
 >>>>>>> Stashed changes
+=======
+        return view('kasir.main.dashboard');
+>>>>>>> main
     }
 }

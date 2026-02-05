@@ -3,6 +3,7 @@
 @section('page-title', 'Dashboard')
 
 @section('content')
+<<<<<<< HEAD
 <div class="space-y-6">
     {{-- Greeting --}}
     <div>
@@ -272,4 +273,9 @@
     });
 </script>
 @endpush
+=======
+    <h1 class="text-2xl font-bold text-gray-900 mb-6">Dashboard Kasir</h1>
+    
+    {{-- Your dashboard content here --}}
+>>>>>>> main
 @endsection

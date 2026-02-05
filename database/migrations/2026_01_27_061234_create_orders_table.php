@@ -22,7 +22,7 @@ return new class extends Migration
             $table->integer('total_price');
             $table->integer('paid_amount');
             $table->timestamps();
-
+            $table->softDeletes();
         });
     }
 

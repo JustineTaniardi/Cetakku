@@ -24,14 +24,14 @@
             {{-- Pesanan --}}
             <a href="{{ route('kasir.order') }}"
                class="flex items-center gap-2 px-2.5 py-1.5 rounded-md transition {{ request()->routeIs('kasir.order') ? $active : $normal }}">
-                <img src="{{ asset('assets/icons/pesanan.png') }}" class="w-3.5 h-3.5">
+                <img src="{{ asset('assets/icons/' . (request()->routeIs('kasir.order') ? 'pesanan_selected.png' : 'pesanan.png')) }}" class="w-3.5 h-3.5">
                 <span class="text-[13px]">Pesanan</span>
             </a>
 
             {{-- Pembeli --}}
             <a href="{{ route('kasir.customer') }}"
                class="flex items-center gap-2 px-2.5 py-1.5 rounded-md transition {{ request()->routeIs('kasir.customer') ? $active : $normal }}">
-                <img src="{{ asset('assets/icons/pembeli.png') }}" class="w-3.5 h-3.5">
+                <img src="{{ asset('assets/icons/' . (request()->routeIs('kasir.customer') ? 'pembeli_selected.png' : 'pembeli.png')) }}" class="w-3.5 h-3.5">
                 <span class="text-[13px]">Pembeli</span>
             </a>
         </div>
@@ -42,13 +42,13 @@
 
             <a href="{{ route('kasir.product') }}" 
                class="flex items-center gap-2 px-2.5 py-1.5 rounded-md transition {{ request()->routeIs('kasir.product') ? $active : $normal }}">
-                <img src="{{ asset('assets/icons/produk.png') }}" class="w-3.5 h-3.5">
+                <img src="{{ asset('assets/icons/' . (request()->routeIs('kasir.product') ? 'produk_selected.png' : 'produk.png')) }}" class="w-3.5 h-3.5">
                 <span class="text-[13px]">Produk</span>
             </a>
 
             <a href="{{ route('kasir.category') }}" 
                class="flex items-center gap-2 px-2.5 py-1.5 rounded-md transition {{ request()->routeIs('kasir.category') ? $active : $normal }}">
-                <img src="{{ asset('assets/icons/kategori.png') }}" class="w-3.5 h-3.5">
+                <img src="{{ asset('assets/icons/' . (request()->routeIs('kasir.category') ? 'kategori_selected.png' : 'kategori.png')) }}" class="w-3.5 h-3.5">
                 <span class="text-[13px]">Kategori</span>
             </a>
         </div>
@@ -59,19 +59,19 @@
 
             <a href="{{ route('kasir.job') }}" 
                class="flex items-center gap-2 px-2.5 py-1.5 rounded-md transition {{ request()->routeIs('kasir.job') ? $active : $normal }}">
-                <img src="{{ asset('assets/icons/pekerjaan.png') }}" class="w-3.5 h-3.5">
+                <img src="{{ asset('assets/icons/' . (request()->routeIs('kasir.job') ? 'pekerjaan_selected.png' : 'pekerjaan.png')) }}" class="w-3.5 h-3.5">
                 <span class="text-[13px]">Pekerjaan</span>
             </a>
 
             <a href="{{ route('kasir.invoice') }}" 
                class="flex items-center gap-2 px-2.5 py-1.5 rounded-md transition {{ request()->routeIs('kasir.invoice') ? $active : $normal }}">
-                <img src="{{ asset('assets/icons/faktur.png') }}" class="w-3.5 h-3.5">
+                <img src="{{ asset('assets/icons/' . (request()->routeIs('kasir.invoice') ? 'faktur_selected.png' : 'faktur.png')) }}" class="w-3.5 h-3.5">
                 <span class="text-[13px]">Faktur</span>
             </a>
 
             <a href="{{ route('kasir.payment') }}" 
                class="flex items-center gap-2 px-2.5 py-1.5 rounded-md transition {{ request()->routeIs('kasir.payment') ? $active : $normal }}">
-                <img src="{{ asset('assets/icons/pembayaran.png') }}" class="w-3.5 h-3.5">
+                <img src="{{ asset('assets/icons/' . (request()->routeIs('kasir.payment') ? 'pembayaran_selected.png' : 'pembayaran.png')) }}" class="w-3.5 h-3.5">
                 <span class="text-[13px]">Pembayaran</span>
             </a>
         </div>
@@ -82,13 +82,13 @@
 
             <a href="{{ route('kasir.supplier') }}" 
                class="flex items-center gap-2 px-2.5 py-1.5 rounded-md transition {{ request()->routeIs('kasir.supplier') ? $active : $normal }}">
-                <img src="{{ asset('assets/icons/pemasok.png') }}" class="w-3.5 h-3.5">
+                <img src="{{ asset('assets/icons/' . (request()->routeIs('kasir.supplier') ? 'pemasok_selected.png' : 'pemasok.png')) }}" class="w-3.5 h-3.5">
                 <span class="text-[13px]">Pemasok</span>
             </a>
 
             <a href="{{ route('kasir.material') }}" 
                class="flex items-center gap-2 px-2.5 py-1.5 rounded-md transition {{ request()->routeIs('kasir.material') ? $active : $normal }}">
-                <img src="{{ asset('assets/icons/bahan.png') }}" class="w-3.5 h-3.5">
+                <img src="{{ asset('assets/icons/' . (request()->routeIs('kasir.material') ? 'bahan_selected.png' : 'bahan.png')) }}" class="w-3.5 h-3.5">
                 <span class="text-[13px]">Bahan</span>
             </a>
         </div>
@@ -99,19 +99,19 @@
 
             <a href="{{ route('kasir.receivable') }}" 
                class="flex items-center gap-2 px-2.5 py-1.5 rounded-md transition {{ request()->routeIs('kasir.receivable') ? $active : $normal }}">
-                <img src="{{ asset('assets/icons/piutang.png') }}" class="w-3.5 h-3.5">
+                <img src="{{ asset('assets/icons/' . (request()->routeIs('kasir.receivable') ? 'piutang_selected.png' : 'piutang.png')) }}" class="w-3.5 h-3.5">
                 <span class="text-[13px]">Piutang</span>
             </a>
 
             <a href="{{ route('kasir.debt') }}" 
                class="flex items-center gap-2 px-2.5 py-1.5 rounded-md transition {{ request()->routeIs('kasir.debt') ? $active : $normal }}">
-                <img src="{{ asset('assets/icons/hutang.png') }}" class="w-3.5 h-3.5">
+                <img src="{{ asset('assets/icons/' . (request()->routeIs('kasir.debt') ? 'hutang_selected.png' : 'hutang.png')) }}" class="w-3.5 h-3.5">
                 <span class="text-[13px]">Hutang</span>
             </a>
 
             <a href="{{ route('kasir.omset') }}" 
                class="flex items-center gap-2 px-2.5 py-1.5 rounded-md transition {{ request()->routeIs('kasir.omset') ? $active : $normal }}">
-                <img src="{{ asset('assets/icons/omset.png') }}" class="w-3.5 h-3.5">
+                <img src="{{ asset('assets/icons/' . (request()->routeIs('kasir.omset') ? 'omset_selected.png' : 'omset.png')) }}" class="w-3.5 h-3.5">
                 <span class="text-[13px]">Omset</span>
             </a>
         </div>

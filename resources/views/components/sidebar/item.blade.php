@@ -5,12 +5,12 @@
 @endphp
 
 <a href="{{ route($route) }}"
-    class="flex items-center gap-2 px-3 py-2 rounded transition text-xs
-        {{ $active ? 'text-white bg-[#370C5A]' : 'text-gray-700 hover:text-white hover:bg-[#8F3FCF]' }}">
+    class="flex items-center gap-2 px-2.5 py-1.5 rounded-md transition text-xs
+        {{ $active ? 'text-white bg-secondary' : 'text-gray-700 hover:text-gray-900 hover:bg-gray-100' }}">
 
     <img src="{{ asset('assets/icons/' . $icon) }}" 
         alt="{{ $label }} icon"
-        class="w-[14px] h-[14px] object-contain {{ $active ? 'brightness-0 invert' : '' }}" />
+        class="w-3.5 h-3.5 object-contain {{ $active ? 'brightness-0 invert' : '' }}" />
 
     <span class="text-[13px]">{{ $label }}</span>
 </a>

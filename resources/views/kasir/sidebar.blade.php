@@ -1,4 +1,4 @@
-<aside class="w-52 h-screen bg-white border-r px-3 overflow-hidden flex flex-col">
+<aside class="w-52 h-screen bg-white border-r border-gray-200 px-3 overflow-hidden flex flex-col">
     <h1 class="py-4 text-lg font-bold text-purple-700">
         CetakKu
     </h1>
@@ -7,7 +7,7 @@
 
         @php
             $active = 'bg-[#370C5A] text-white';
-            $normal = 'text-gray-700 hover:bg-[#8F3FCF] hover:text-white';
+            $normal = 'text-gray-700 hover:bg-gray-100 hover:text-gray-900';
         @endphp
 
         {{-- MAIN --}}

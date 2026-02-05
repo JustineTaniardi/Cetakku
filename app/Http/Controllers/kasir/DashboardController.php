@@ -12,11 +12,6 @@ use Illuminate\Support\Facades\DB;
 
 class DashboardController extends Controller
 {
-<<<<<<< Updated upstream
-    public function index(){
-<<<<<<< HEAD
-        return view('kasir.dashboard');
-=======
     public function index()
     {
         $currentMonth = Carbon::now()->month;
@@ -97,9 +92,5 @@ class DashboardController extends Controller
             'yearlyOrders',
             'recentTransactions'
         ));
->>>>>>> Stashed changes
-=======
-        return view('kasir.main.dashboard');
->>>>>>> main
     }
 }

@@ -12,15 +12,6 @@
     {{-- SIDEBAR --}}
     @include(auth()->user()->role->name . '.sidebar')
 
-<<<<<<< HEAD
-<<<<<<< Updated upstream
-    {{-- KONTEN UTAMA --}}
-    <main class="flex-1 p-6">
-        @yield('content')
-    </main>
-=======
-=======
->>>>>>> main
     {{-- MAIN CONTENT AREA --}}
     <div class="flex-1 flex flex-col overflow-hidden bg-white">
         
@@ -34,22 +25,13 @@
         </header>
 
         {{-- CONTENT --}}
-<<<<<<< HEAD
-        <main class="flex-1 overflow-y-auto bg-gray-50 p-6">
-=======
         <main class="flex-1 overflow-y-auto bg-white p-6">
->>>>>>> main
             @yield('content')
         </main>
 
     </div>
-<<<<<<< HEAD
->>>>>>> Stashed changes
-=======
->>>>>>> main
 
 </div>
 
-@stack('scripts')
 </body>
 </html>

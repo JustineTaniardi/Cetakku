@@ -30,7 +30,11 @@ Route::middleware(['auth', 'role:admin'])->group(function () {
 Route::middleware(['auth', 'role:kasir'])->prefix('kasir')->name('kasir.')->group(function () {
     // Main
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
+    
+    // Orders 
     Route::get('/order', [OrderController::class, 'index'])->name('order');
+    
+    // Customer
     Route::get('/customer', [CustomerController::class, 'index'])->name('customer');
     
     // Products

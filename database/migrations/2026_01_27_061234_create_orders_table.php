@@ -17,6 +17,7 @@ return new class extends Migration
             $table->foreignId('customer_id')->constrained('customers')->onDelete('restrict');
             $table->foreignId('user_id')->constrained('users')->onDelete('restrict');
             $table->dateTime('order_date');
+            $table->dateTime('deadline')->nullable();
             $table->enum('status_order', ['pending', 'process', 'done', 'cancel'])->default('pending');
             $table->enum('payment_status', ['lunas', 'piutang']);
             $table->integer('total_price');

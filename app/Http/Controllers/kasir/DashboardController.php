@@ -24,8 +24,8 @@ class DashboardController extends Controller
             ->where('status_order', '!=', 'cancel')
             ->sum('total_price');
 
-        $totalReceivables = Receivable::where('status', 'unpaid')->sum('amount');
-        $countReceivables = Receivable::where('status', 'unpaid')->count();
+        $totalReceivables = Receivable::where('status', 'pending')->sum('amount');
+        $countReceivables = Receivable::where('status', 'pending')->count();
 
         $totalOrdersToday = Order::whereDate('order_date', Carbon::today())
             ->where('status_order', '!=', 'cancel')

@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('supplier_materials', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('product_id')->constrained('products')->onDelete('restrict');
+            $table->foreignId('supplier_id')->constrained('suppliers')->onDelete('restrict');
             $table->foreignId('material_id')->constrained('materials')->onDelete('restrict');
             $table->integer('buy_price');
             $table->timestamps();

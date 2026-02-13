@@ -7,6 +7,7 @@ use App\Models\Material;
 use App\Models\Unit;
 use App\Models\Supplier;
 use App\Models\SupplierMaterial;
+use App\Models\Product;
 use Illuminate\Http\Request;
 
 class MaterialController extends Controller
@@ -28,7 +29,10 @@ class MaterialController extends Controller
         $totalSuppliers = Supplier::count();
         $totalUnits = Unit::count();
 
-        return view('kasir.supply.material', compact('materials', 'totalMaterials', 'lowStock', 'totalSuppliers', 'totalUnits'));
+        // For Buy Material Modal
+        $products = Product::with('product_material.material')->get();
+
+        return view('kasir.supply.material', compact('materials', 'totalMaterials', 'lowStock', 'totalSuppliers', 'totalUnits', 'products'));
     }
 
     public function store(Request $request)
@@ -142,5 +146,67 @@ class MaterialController extends Controller
 
         return redirect()->route('kasir.material.show', $materialId)
             ->with('success', 'Pemasok berhasil dihapus dari material!');
+    }
+
+    // Get Materials by Product (AJAX)
+    public function getMaterialsByProduct($productId)
+    {
+        $product = Product::with('product_material.material.supplier_material.supplier')->findOrFail($productId);
+
+        $materials = $product->product_material->map(function ($pm) {
+            return [
+                'id' => $pm->material->id,
+                'name' => $pm->material->name,
+                'unit' => $pm->material->unit->name ?? '-',
+                'suppliers' => $pm->material->supplier_material->map(function ($sm) {
+                    return [
+                        'id' => $sm->supplier->id,
+                        'name' => $sm->supplier->name,
+                        'address' => $sm->supplier->address,
+                        'buy_price' => $sm->buy_price,
+                    ];
+                })
+            ];
+        });
+
+        return response()->json($materials);
+    }
+
+    // Purchase Material
+    public function purchaseMaterial(Request $request)
+    {
+        $request->validate([
+            'material_id' => 'required|exists:materials,id',
+            'supplier_id' => 'required|exists:suppliers,id',
+            'qty' => 'required|numeric|min:0',
+            'price' => 'required|numeric|min:0',
+        ]);
+
+        // Update material stock
+        $material = Material::findOrFail($request->material_id);
+        $material->qty += $request->qty;
+        $material->save();
+
+        // Here you can add logic to create Purchase record if you have purchases table
+        // Purchase::create([...]);
+
+        return redirect()->back()->with('success', 'Pembelian bahan berhasil! Stok telah ditambahkan.');
+    }
+
+    // Get Suppliers by Material (AJAX)
+    public function getSuppliersByMaterial($materialId)
+    {
+        $material = Material::with('supplier_material.supplier')->findOrFail($materialId);
+
+        $suppliers = $material->supplier_material->map(function ($sm) {
+            return [
+                'id' => $sm->supplier->id,
+                'name' => $sm->supplier->name,
+                'address' => $sm->supplier->address,
+                'buy_price' => $sm->buy_price,
+            ];
+        });
+
+        return response()->json($suppliers);
     }
 }

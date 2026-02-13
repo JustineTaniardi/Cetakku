@@ -14,9 +14,10 @@ return new class extends Migration
         Schema::create('units', function (Blueprint $table) {
             $table->id();
             $table->string('name');
+            $table->string('abbreviation')->nullable();
+            $table->integer('value')->default(1);
             $table->timestamps();
             $table->softDeletes();
-
         });
     }
 

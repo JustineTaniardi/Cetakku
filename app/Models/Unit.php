@@ -10,6 +10,8 @@ class Unit extends Model
     use SoftDeletes;
     protected $fillable = [
         'name',
+        'abbreviation',
+        'value',
     ];
 
     public function material(){

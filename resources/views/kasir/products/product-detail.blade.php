@@ -67,10 +67,17 @@
                     <p class="text-xs text-gray-600 mt-1">Material yang digunakan untuk membuat produk ini</p>
                 </div>
                 
-                <button type="button" id="btnAddMaterial" class="inline-flex items-center px-5 py-2 bg-secondary text-white rounded-lg hover:bg-[#4a0f75] transition-colors text-[13px] font-medium">
-                    <img src="{{ asset('assets/icons/tambah.png') }}" class="w-4 h-4 mr-2" alt="Add">
-                    Tambah Material
-                </button>
+                <div class="flex items-center gap-3">
+                    <button type="button" id="btnBuyMaterial" class="inline-flex items-center px-5 py-2 bg-secondary text-white rounded-lg hover:bg-[#4a0f75] transition-colors text-[13px] font-medium">
+                        <img src="{{ asset('assets/icons/cart.png') }}" class="w-4 h-4 mr-2" alt="Buy">
+                        Beli bahan
+                    </button>
+                    
+                    <button type="button" id="btnAddMaterial" class="inline-flex items-center px-5 py-2 bg-secondary text-white rounded-lg hover:bg-[#4a0f75] transition-colors text-[13px] font-medium">
+                        <img src="{{ asset('assets/icons/tambah.png') }}" class="w-4 h-4 mr-2" alt="Add">
+                        Tambah Material
+                    </button>
+                </div>
             </div>
 
             <div class="overflow-x-auto">
@@ -80,25 +87,44 @@
                             <th class="px-6 py-3 text-left text-xs font-semibold text-gray-700 uppercase tracking-wider">Nama Material</th>
                             <th class="px-6 py-3 text-left text-xs font-semibold text-gray-700 uppercase tracking-wider">Satuan</th>
                             <th class="px-6 py-3 text-left text-xs font-semibold text-gray-700 uppercase tracking-wider">Kuantitas Dibutuhkan</th>
-                            <th class="px-6 py-3 text-left text-xs font-semibold text-gray-700 uppercase tracking-wider">Stok Tersedia</th>
-                            <th class="px-6 py-3 text-left text-xs font-semibold text-gray-700 uppercase tracking-wider">Status Stok</th>
-                            <th class="px-6 py-3 text-left text-xs font-semibold text-gray-700 uppercase tracking-wider">Ditambahkan</th>
+                            <th class="px-6 py-3 text-left text-xs font-semibold text-gray-700 uppercase tracking-wider">Stock Tersedia</th>
+                            <th class="px-6 py-3 text-left text-xs font-semibold text-gray-700 uppercase tracking-wider">Status Stock</th>
+                            <th class="px-6 py-3 text-left text-xs font-semibold text-gray-700 uppercase tracking-wider">Tanggal</th>
                             <th class="px-6 py-3 text-left text-xs font-semibold text-gray-700 uppercase tracking-wider">Aksi</th>
                         </tr>
                     </thead>
                     <tbody class="divide-y divide-gray-200">
                         @forelse($product->product_material as $productMaterial)
+                            @php
+                                $material = $productMaterial->material;
+                                $unit = $material->unit;
+                                $qtyInUnit = $unit && $unit->value > 1 ? $material->qty / $unit->value : $material->qty;
+                                $neededInUnit = $unit && $unit->value > 1 ? $productMaterial->quantity_needed / $unit->value : $productMaterial->quantity_needed;
+                            @endphp
                             <tr class="hover:bg-gray-50 transition-colors">
-                                <td class="px-6 py-4 text-sm text-gray-900">{{ $productMaterial->material->name }}</td>
-                                <td class="px-6 py-4 text-sm text-gray-700">{{ $productMaterial->material->unit->name ?? '-' }}</td>
-                                <td class="px-6 py-4 text-sm text-gray-900 font-semibold">{{ $productMaterial->quantity_needed }}</td>
-                                <td class="px-6 py-4 text-sm {{ $productMaterial->material->qty < 10 ? 'text-red-600 font-semibold' : 'text-gray-700' }}">
-                                    {{ $productMaterial->material->qty }}
+                                <td class="px-6 py-4 text-sm text-gray-900">{{ $material->name }}</td>
+                                <td class="px-6 py-4 text-sm text-gray-700">
+                                    {{ $unit->name ?? '-' }}
+                                    @if($unit && $unit->abbreviation)
+                                        ({{ $unit->abbreviation }})
+                                    @endif
+                                </td>
+                                <td class="px-6 py-4 text-sm text-gray-900 font-semibold">
+                                    {{ number_format($neededInUnit, 2, ',', '.') }} {{ $unit->name ?? '' }}
+                                    @if($unit && $unit->value > 1)
+                                        <span class="text-xs text-gray-500">/ {{ number_format($productMaterial->quantity_needed, 0, ',', '.') }} pcs</span>
+                                    @endif
+                                </td>
+                                <td class="px-6 py-4 text-sm {{ $material->qty < 10 ? 'text-red-600 font-semibold' : 'text-gray-700' }}">
+                                    {{ number_format($qtyInUnit, 2, ',', '.') }} {{ $unit->name ?? '' }}
+                                    @if($unit && $unit->value > 1)
+                                        <span class="text-xs text-gray-500">/ {{ number_format($material->qty, 0, ',', '.') }} pcs</span>
+                                    @endif
                                 </td>
                                 <td class="px-6 py-4">
-                                    @if($productMaterial->material->qty >= $productMaterial->quantity_needed)
+                                    @if($material->qty >= $productMaterial->quantity_needed)
                                         <span class="px-2.5 py-1 bg-green-100 text-green-700 text-xs font-medium rounded-md">Cukup</span>
-                                    @elseif($productMaterial->material->qty > 0)
+                                    @elseif($material->qty > 0)
                                         <span class="px-2.5 py-1 bg-yellow-100 text-yellow-700 text-xs font-medium rounded-md">Kurang</span>
                                     @else
                                         <span class="px-2.5 py-1 bg-red-100 text-red-700 text-xs font-medium rounded-md">Habis</span>
@@ -109,7 +135,7 @@
                                     <div class="flex items-center gap-2">
                                         <button type="button" class="btn-edit-material hover:opacity-75" 
                                             data-material-id="{{ $productMaterial->material_id }}"
-                                            data-material-name="{{ $productMaterial->material->name }}"
+                                            data-material-name="{{ $material->name }}"
                                             data-quantity-needed="{{ $productMaterial->quantity_needed }}">
                                             <img src="{{ asset('assets/icons/edit.png') }}" class="w-5 h-5" alt="Edit">
                                         </button>
@@ -158,7 +184,7 @@
                                 class="w-full px-3 py-2 text-sm border border-gray-300 rounded-lg focus:ring-2 focus:ring-secondary focus:border-transparent">
                                 <option value="">-- Pilih Material --</option>
                                 @foreach($availableMaterials as $material)
-                                    <option value="{{ $material->id }}">{{ $material->name }} ({{ $material->unit->name ?? '-' }}) - Stok: {{ $material->qty }}</option>
+                                    <option value="{{ $material->id }}">{{ $material->name }} ({{ $material->unit->name ?? '-' }}) - Stok: {{ number_format($material->qty, 2, ',', '.') }}</option>
                                 @endforeach
                             </select>
                         </div>
@@ -224,6 +250,85 @@
     </div>
 </div>
 
+{{-- Buy Material Modal --}}
+<div id="modalBuyMaterial" class="hidden fixed inset-0 bg-gray-900/40 z-50 overflow-y-auto">
+    <div class="flex items-center justify-center min-h-screen px-4 py-8">
+        <div class="bg-white rounded-lg shadow-xl w-full max-w-lg transform transition-all">
+            <div class="p-6">
+                <div class="flex items-center justify-between mb-4">
+                    <div>
+                        <h3 class="text-lg font-semibold text-gray-900">Beli bahan</h3>
+                        <p class="text-xs text-gray-600 mt-0.5">Beli bahan langsung dari pemasok</p>
+                    </div>
+                    <button type="button" class="close-modal-buy text-gray-400 hover:text-gray-600">
+                        <img src="{{ asset('assets/icons/close.png') }}" class="w-6 h-6" alt="Close">
+                    </button>
+                </div>
+
+                <form id="formBuyMaterial" action="{{ route('kasir.material.purchase') }}" method="POST">
+                    @csrf
+                    <input type="hidden" name="product_id" value="{{ $product->id }}">
+                    <div class="space-y-4">
+                        <div>
+                            <label for="buy_product_name" class="block text-sm font-medium text-gray-700 mb-1">Produk <span class="text-red-500">*</span></label>
+                            <input type="text" id="buy_product_name" value="{{ $product->name }}" readonly
+                                class="w-full px-3 py-2 text-sm border border-gray-300 rounded-lg bg-gray-50">
+                        </div>
+
+                        <div>
+                            <label for="buy_material_id" class="block text-sm font-medium text-gray-700 mb-1">Material <span class="text-red-500">*</span></label>
+                            <select id="buy_material_id" name="material_id" required
+                                class="w-full px-3 py-2 text-sm border border-gray-300 rounded-lg focus:ring-2 focus:ring-secondary focus:border-transparent">
+                                <option value="">-- Pilih Material --</option>
+                                @foreach($product->product_material as $pm)
+                                    <option value="{{ $pm->material->id }}">{{ $pm->material->name }} ({{ $pm->material->unit->name ?? '-' }})</option>
+                                @endforeach
+                            </select>
+                        </div>
+
+                        <div>
+                            <label for="buy_supplier_id" class="block text-sm font-medium text-gray-700 mb-1">Nama Pemasok <span class="text-red-500">*</span></label>
+                            <select id="buy_supplier_id" name="supplier_id" required disabled
+                                class="w-full px-3 py-2 text-sm border border-gray-300 rounded-lg focus:ring-2 focus:ring-secondary focus:border-transparent bg-gray-50">
+                                <option value="">-- Pilih Pemasok --</option>
+                            </select>
+                        </div>
+
+                        <div>
+                            <label for="buy_address" class="block text-sm font-medium text-gray-700 mb-1">Alamat</label>
+                            <input type="text" id="buy_address" readonly disabled
+                                class="w-full px-3 py-2 text-sm border border-gray-300 rounded-lg bg-gray-50"
+                                placeholder="-">
+                        </div>
+
+                        <div>
+                            <label for="buy_qty" class="block text-sm font-medium text-gray-700 mb-1">Jumlah <span class="text-red-500">*</span></label>
+                            <input type="number" id="buy_qty" name="qty" required min="0" step="0.01"
+                                class="w-full px-3 py-2 text-sm border border-gray-300 rounded-lg focus:ring-2 focus:ring-secondary focus:border-transparent"
+                                placeholder="0">
+                        </div>
+
+                        <div>
+                            <label for="buy_price" class="block text-sm font-medium text-gray-700 mb-1">Harga <span class="text-red-500">*</span></label>
+                            <div class="relative">
+                                <span class="absolute left-3 top-1/2 -translate-y-1/2 text-sm text-gray-500">Rp</span>
+                                <input type="number" id="buy_price" name="price" required min="0" step="0.01"
+                                    class="w-full pl-10 pr-3 py-2 text-sm border border-gray-300 rounded-lg focus:ring-2 focus:ring-secondary focus:border-transparent"
+                                    placeholder="0">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="flex items-center justify-end gap-3 mt-6">
+                        <button type="button" class="close-modal-buy px-4 py-2 text-sm bg-gray-200 text-gray-700 rounded-lg hover:bg-gray-300 transition-colors">Batal</button>
+                        <button type="submit" class="px-4 py-2 text-sm bg-secondary text-white rounded-lg hover:bg-[#4a0f75] transition-colors">Beli Sekarang</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
 @push('scripts')
 <script>
 (function() {
@@ -232,11 +337,20 @@
     // DOM Elements
     const modalAddMaterial = document.getElementById('modalAddMaterial');
     const modalEditMaterial = document.getElementById('modalEditMaterial');
+    const modalBuyMaterial = document.getElementById('modalBuyMaterial');
     const btnAddMaterial = document.getElementById('btnAddMaterial');
+    const btnBuyMaterial = document.getElementById('btnBuyMaterial');
     const formEditMaterial = document.getElementById('formEditMaterial');
     const closeButtons = document.querySelectorAll('.close-modal');
+    const closeButtonsBuy = document.querySelectorAll('.close-modal-buy');
     const btnEditMaterials = document.querySelectorAll('.btn-edit-material');
     const deleteForms = document.querySelectorAll('.delete-form');
+
+    // Buy Material Form Elements
+    const buyMaterialSelect = document.getElementById('buy_material_id');
+    const buySupplierSelect = document.getElementById('buy_supplier_id');
+    const buyAddressInput = document.getElementById('buy_address');
+    const buyPriceInput = document.getElementById('buy_price');
 
     // Helper Functions
     function showModal(modal) {
@@ -258,6 +372,65 @@
         btnAddMaterial.addEventListener('click', function() {
             showModal(modalAddMaterial);
             document.getElementById('formAddMaterial').reset();
+        });
+    }
+
+    // Open Buy Material Modal
+    if (btnBuyMaterial) {
+        btnBuyMaterial.addEventListener('click', function() {
+            showModal(modalBuyMaterial);
+            document.getElementById('formBuyMaterial').reset();
+            buySupplierSelect.disabled = true;
+            buyAddressInput.value = '-';
+            buyPriceInput.value = '';
+        });
+    }
+
+    // Handle Material Selection in Buy Modal
+    if (buyMaterialSelect) {
+        buyMaterialSelect.addEventListener('change', function() {
+            const materialId = this.value;
+            if (!materialId) {
+                buySupplierSelect.disabled = true;
+                buySupplierSelect.innerHTML = '<option value="">-- Pilih Pemasok --</option>';
+                buyAddressInput.value = '-';
+                buyPriceInput.value = '';
+                return;
+            }
+
+            // Fetch suppliers for this material
+            fetch(`/kasir/material/${materialId}/suppliers`)
+                .then(response => response.json())
+                .then(data => {
+                    buySupplierSelect.innerHTML = '<option value="">-- Pilih Pemasok --</option>';
+                    data.forEach(supplier => {
+                        const option = document.createElement('option');
+                        option.value = supplier.id;
+                        option.textContent = supplier.name;
+                        option.dataset.address = supplier.address || '-';
+                        option.dataset.price = supplier.buy_price || 0;
+                        buySupplierSelect.appendChild(option);
+                    });
+                    buySupplierSelect.disabled = false;
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                    alert('Gagal memuat pemasok!');
+                });
+        });
+    }
+
+    // Handle Supplier Selection
+    if (buySupplierSelect) {
+        buySupplierSelect.addEventListener('change', function() {
+            const selectedOption = this.options[this.selectedIndex];
+            if (selectedOption.value) {
+                buyAddressInput.value = selectedOption.dataset.address || '-';
+                buyPriceInput.value = selectedOption.dataset.price || 0;
+            } else {
+                buyAddressInput.value = '-';
+                buyPriceInput.value = '';
+            }
         });
     }
 
@@ -284,6 +457,12 @@
         });
     });
 
+    closeButtonsBuy.forEach(function(btn) {
+        btn.addEventListener('click', function() {
+            hideModal(modalBuyMaterial);
+        });
+    });
+
     // Close Modal on Outside Click
     [modalAddMaterial, modalEditMaterial].forEach(function(modal) {
         if (modal) {
@@ -295,11 +474,20 @@
         }
     });
 
+    if (modalBuyMaterial) {
+        modalBuyMaterial.addEventListener('click', function(e) {
+            if (e.target === this) {
+                hideModal(this);
+            }
+        });
+    }
+
     // Close Modal on ESC Key
     document.addEventListener('keydown', function(e) {
         if (e.key === 'Escape') {
             hideModal(modalAddMaterial);
             hideModal(modalEditMaterial);
+            hideModal(modalBuyMaterial);
         }
     });
 

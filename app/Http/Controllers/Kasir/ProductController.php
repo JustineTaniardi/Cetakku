@@ -56,7 +56,7 @@ class ProductController extends Controller
 
     public function show($id)
     {
-        $product = Product::with(['category', 'unit', 'product_material.material.unit'])->findOrFail($id);
+        $product = Product::with(['category', 'unit', 'product_material.material.unit', 'product_material.material.supplier_material.supplier'])->findOrFail($id);
 
         // Get available materials not yet added to this product
         $availableMaterials = Material::whereNotIn(

@@ -73,9 +73,15 @@ class CategoryController extends Controller
     {
         $request->validate([
             'name' => 'required|string|max:255|unique:units,name',
+            'abbreviation' => 'nullable|string|max:50',
+            'value' => 'required|integer|min:1',
         ]);
 
-        Unit::create(['name' => $request->name]);
+        Unit::create([
+            'name' => $request->name,
+            'abbreviation' => $request->abbreviation,
+            'value' => $request->value,
+        ]);
 
         return redirect()->route('kasir.category')->with('success', 'Satuan berhasil ditambahkan!');
     }
@@ -86,9 +92,15 @@ class CategoryController extends Controller
         
         $request->validate([
             'name' => 'required|string|max:255|unique:units,name,' . $id,
+            'abbreviation' => 'nullable|string|max:50',
+            'value' => 'required|integer|min:1',
         ]);
 
-        $unit->update(['name' => $request->name]);
+        $unit->update([
+            'name' => $request->name,
+            'abbreviation' => $request->abbreviation,
+            'value' => $request->value,
+        ]);
 
         return redirect()->route('kasir.category')->with('success', 'Satuan berhasil diupdate!');
     }

@@ -15,10 +15,9 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->foreignId('unit_id')->constrained('units')->onDelete('restrict');
-            $table->integer('qty');
+            $table->float('qty');
             $table->timestamps();
             $table->softDeletes();
-
         });
     }
 
